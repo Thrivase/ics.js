@@ -188,10 +188,10 @@ export function addEvent(subject, description, location, begin, stop, timezone, 
   let dtstart = ''
   let dtend = ''
   if (timezone) {
-    dtstart = 'TZID='+timezone+':'+ now;
+    dtstart = 'TZID='+timezone+':'+ start;
     dtend = 'TZID='+timezone+':'+ end;
   } else {
-    dtstart = 'VALUE=DATE-TIME:' + now;
+    dtstart = 'VALUE=DATE-TIME:' + start;
     dtend = 'VALUE=DATE-TIME:' + end;
   }
 
@@ -200,7 +200,7 @@ export function addEvent(subject, description, location, begin, stop, timezone, 
     'UID:' + calendarEvents.length + "@default",
     'CLASS:PUBLIC',
     'DESCRIPTION:' + description,
-    'DTSTAMP;VALUE=DATE-TIME:' + now,
+    'DTSTAMP;VALUE=DATE-TIME:' + start,
     'DTSTART;'+ dtstart,
     'DTEND;' + dtend,
     'LOCATION:' + location,
