@@ -18,7 +18,7 @@
       let start = moment('2021-03-23T08:30:00.000Z').format('M/D/YYYY h:mm a');
       let finish = moment('2021-03-23T10:30:00.000Z').format('M/D/YYYY h:mm a');
       console.log(start, finish);
-      ics.addEvent('hello', '', '', start, finish, 'Australia/Melbourne');
+      ics.addEvent('hello', '', '', 'https://www.google.com.au',start, finish, 'Australia/Melbourne');
       ics.download();
   </script>
 </html>

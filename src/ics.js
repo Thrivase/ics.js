@@ -46,7 +46,7 @@ export function calendar() {
  * @param  {string} begin       Beginning date of event
  * @param  {string} stop        Ending date of event
  */
-export function addEvent(subject, description, location, begin, stop, timezone, rrule) {
+export function addEvent(subject, description, location, url, begin, stop, timezone, rrule) {
   // I'm not in the mood to make these optional... So they are all required
   if (typeof subject === 'undefined' ||
     typeof description === 'undefined' ||
@@ -205,10 +205,12 @@ export function addEvent(subject, description, location, begin, stop, timezone, 
     'DTEND;' + dtend,
     'LOCATION:' + location,
     'SUMMARY;LANGUAGE=en-us:' + subject,
+    'URL:' + url,
     'TRANSP:TRANSPARENT',
     'END:VEVENT'
   ];
 
+  
   if (rruleString) {
     calendarEvent.splice(4, 0, rruleString);
   }
