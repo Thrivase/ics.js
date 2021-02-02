@@ -1,5 +1,4 @@
 import saveAs from 'file-saver';
-import axios from 'axios';
 import tz from './timezones.js'
 
 'use strict';
@@ -26,7 +25,7 @@ var calendarEnd = SEPARATOR + 'END:VCALENDAR';
  * Returns events array
  * @return {array} Events
  */
-export function events() {
+module.exports = function events() {
   return calendarEvents;
 }
 
@@ -34,7 +33,7 @@ export function events() {
  * Returns calendar
  * @return {string} Calendar in iCalendar format
  */
-export function calendar() {
+module.exports = function calendar() {
   return calendarStart + SEPARATOR + calendarEvents.join(SEPARATOR) + calendarEnd;
 }
 
@@ -46,7 +45,7 @@ export function calendar() {
  * @param  {string} begin       Beginning date of event
  * @param  {string} stop        Ending date of event
  */
-export function addEvent(subject, description, location, url, begin, stop, timezone, rrule) {
+module.exports = function addEvent(subject, description, location, url, begin, stop, timezone, rrule) {
   // I'm not in the mood to make these optional... So they are all required
   if (typeof subject === 'undefined' ||
     typeof description === 'undefined' ||
@@ -232,7 +231,7 @@ export function addEvent(subject, description, location, url, begin, stop, timez
  * @param  {string} filename Filename
  * @param  {string} ext      Extention
  */
-export function download(filename, ext) {
+module.exports = function download(filename, ext) {
   if (calendarEvents.length < 1) {
     return false;
   }
@@ -256,7 +255,7 @@ export function download(filename, ext) {
 /**
  * Build and return the ical contents
  */
-export function build() {
+module.exports = function build() {
   if (calendarEvents.length < 1) {
     return false;
   }
