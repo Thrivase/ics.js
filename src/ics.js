@@ -265,9 +265,9 @@ const build = () => {
   return calendar;
 }
 
-module.exports = {
-  events,
+export {
   calendar,
+  events,
   addEvent,
   download,
   build
