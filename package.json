@@ -4,7 +4,6 @@
   "description": "A browser firendly .ics/.vcs file generator written entirely in javascript",
   "main": "dist/ics.min.js",
   "dependencies": {
-    "axios": "^0.21.0",
     "file-saver": "^2.0.5"
   },
   "scripts": {
@@ -30,6 +29,8 @@
     "url": "https://github.com/nwcell/ics.js/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "babel-loader": "^8.2.2",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0"
   }
